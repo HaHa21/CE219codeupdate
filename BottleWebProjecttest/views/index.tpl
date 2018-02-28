@@ -13,6 +13,6 @@
   %end
   </ul>
 
-  <a href="/books/new">Add a contact</a>
+  <a href="/books/new">Add a Book</a>
 </body>
 </html>
