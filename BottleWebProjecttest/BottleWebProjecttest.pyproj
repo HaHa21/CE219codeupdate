@@ -30,7 +30,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="app.py" />
+    <Compile Include="config.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="db\databaseini.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="entities.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="routes.py" />
@@ -77,7 +83,16 @@
     <Content Include="views\dropdown.tpl">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="views\editbooks.tpl">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="views\header.tpl">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="views\index.tpl">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="views\showbook.tpl">
       <SubType>Code</SubType>
     </Content>
   </ItemGroup>
