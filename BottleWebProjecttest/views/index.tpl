@@ -1,18 +1,9 @@
 % include('header.tpl', title='Bookstore')
 
-<body>
-  <h1>Book Web Store</h1>
-  <ul>
-  %for book in books:
-  <li>
+<h1>Book Web Store</h1>
+<ul class = "list-group">
+  <li><a href = "/books" class = "list-group-item">Manage books</a></li>
+  <li><a href = "/authors" class = "list-group-item">Manage authors</a></li>
+</ul>
 
-    <a href="/books/{{book.id}}/">{{book.title}}</a>
-    <a href="/books/{{book.id}}/edit">[Edit]</a>
-    <a href="/books/{{book.id}}/delete">[Delete]</a>
-  </li>
-  %end
-  </ul>
-
-  <a href="/books/new">Add a Book</a>
-</body>
 </html>
