@@ -7,43 +7,47 @@ db = Database()
 class Book(db.Entity):
     id = PrimaryKey(int, auto=True)
     title = Required(str)
-    authors = Set('Author')
-    publishers = Set('Publisher')
-    genres = Set('Genre')
+    author = Required('Author')
+    publisher = Required('Publisher')
+    genre = Required('Genre')
     year = Required(str)
     orders = Set('Order')
     
 
-
-class Author(Book):
-    books = Set(Book)
+class Author(db.Entity):
+    id = PrimaryKey(int, auto=True)
     firstname = Required(str)
     lastname = Required(str)
+    books = Set('Book')
 
-
-class Publisher(Book):
-    books = Set(Book)
+class Publisher(db.Entity):
+    id = PrimaryKey(int, auto = True)
     country = Required(str)
+    books = Set('Book')
 
 
-class Genre(Book):
-    books = Set(Book)
+class Genre(db.Entity):
+    id = PrimaryKey(int, auto = True)
     name = Required(str)
+    books = Set('Book')
 
 class Customer(db.Entity):
+    id = PrimaryKey(int, auto=True)
     firstname = Required(str)
     lastname = Required(str)
     phonenumber = Required(str)
     address = Required(str)
     city = Required(str)
     country = Required(str)
+    orders = Set('Order')
 
-
-class Order(Customer):
-    books = Set('Book')
+class Order(db.Entity):
+    id = PrimaryKey(int, auto=True)
+    books = Required('Book')
+    customers = Required('Customer')
     Date_of_purchase = Required(str)
  
-  
+
 db.bind('sqlite', config.DB_FILE_NAME, create_db=True)
 
 # create the tables
