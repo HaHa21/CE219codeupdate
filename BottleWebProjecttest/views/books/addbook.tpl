@@ -19,9 +19,9 @@
 	 <div class = "form-group">
 	   <label for = "author">Book author</label>
 	   <select name="author">
-	   %for a in authors:
-	     <option value = "{{a.id}}"> {{a.first_name}} {{a.last_name}} </option>
-	   %end
+	     %for a in authorlist:
+	       <option value = "{{a.id}}"> {{a.firstname}} {{a.lastname}} </option>
+	     %end
 	   </select>
 	   
 	 </div>
@@ -29,7 +29,7 @@
 	  <div class = "form-group">
 	   <label for = "Publisher">Book Publisher</label>
 	   <select name="publisher">
-	     %for p in publishers:
+	     %for p in publisherlist:
 		   <option value="{{p.id}}">{{p.name}}</option>
 		 %end
 	   </select>
@@ -39,7 +39,7 @@
 	 <div class = "form-group">
 	   <label for =  "genre">Genre</label>
 	   <select name="genre">
-	     %for g in genres:
+	     %for g in genrelist:
 		  <option value="{{g.id}}">{{g.name}}</option>
 	     %end
 		</select>
