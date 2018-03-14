@@ -85,7 +85,7 @@ def delete_contact(id):
 
 def all_books():
 
-     authors = select(b for b in Book)
+     authors = select(a for a in Author)
      return template('author/index', authors = authors)
 
 @route('/authors/new')
@@ -116,7 +116,7 @@ def author():
 def showbook(id):
    
     author = Author[id]
-    return template('books/editbooks', mydate = datetime.date.today(), author = author)
+    return template('author/editauthor', mydate = datetime.date.today(), author = author)
 
 @post('/authors/<id>/update')
 def update_book(id):
@@ -133,3 +133,104 @@ def delete_contact(id):
     author.delete()
     redirect('/')
 
+@route('/publishers')
+
+def all_books():
+
+     publisher = select(p for p in Publisher)
+     return template('publishers/index', publisher = publisher)
+
+@route('/publishers/new')
+
+def new_publisher():
+   
+    publisherlist = select(p for p in Publisher)
+  
+    return template('publishers/addpublisher', mydate = datetime.date.today(), publisherlist = publisherlist)
+
+@route('/publishers/create', method = "POST")
+
+@view('/publishers/addpublisher')
+
+def publisher():
+    publishername = request.forms.get("publishername")
+    publishercountry = request.forms.get("publishercountry")
+
+    publisher = Publisher(publishername = publishername, publishercountry = publishercountry)
+
+    redirect('/')
+
+    return dict(mydate = datetime.date.today())
+
+@route('/publishers/<id>/edit')
+
+@view('/publishers/editpublisher')
+def showpublisher(id):
+   
+    publisher = Publisher[id]
+    return template('publishers/editpublisher', mydate = datetime.date.today(), publisher = publisher)
+
+@post('/publishers/<id>/update')
+def update_publisher(id):
+    
+    publisher = Publisher[id]
+    publisher.publishername = request.forms.get('publishername')
+    publisher.publishercountry = request.forms.get('publishercountry')
+    redirect('/')
+
+@route('/publishers/<id>/delete')
+
+def delete_contact(id):
+    publisher = Publisher[id]
+    publisher.delete()
+    redirect('/')
+
+@route('/genres')
+
+def all_books():
+
+     genre = select(g for g in Genre)
+     return template('genres/index', genre = genre)
+
+@route('/genres/new')
+
+def new_genre():
+   
+    genrelist = select(g for g in Genre)
+  
+    return template('genres/addgenre', mydate = datetime.date.today(), genrelist = genrelist)
+
+@route('/genres/create', method = "POST")
+
+@view('/genres/addgenre')
+
+def genre():
+    name = request.forms.get("name")
+
+    genre = Genre(name = name)
+
+    redirect('/')
+
+    return dict(mydate = datetime.date.today())
+
+@route('/genres/<id>/edit')
+
+@view('/genres/editgenre')
+def showgenre(id):
+   
+    genre = Genre[id]
+    return template('genres/editgenre', mydate = datetime.date.today(), genre = genre)
+
+@post('/genres/<id>/update')
+def update_genre(id):
+    
+    genre = Genre[id]
+    genre.name = request.forms.get('name')
+    redirect('/')
+
+@route('/genres/<id>/delete')
+
+def delete_contact(id):
+    genre = Genre[id]
+    genre.delete()
+    redirect('/')

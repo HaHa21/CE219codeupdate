@@ -22,7 +22,8 @@ class Author(db.Entity):
 
 class Publisher(db.Entity):
     id = PrimaryKey(int, auto = True)
-    country = Required(str)
+    publishername = Required(str)
+    publishercountry = Required(str)
     books = Set('Book')
 
 
