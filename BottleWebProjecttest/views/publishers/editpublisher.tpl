@@ -3,22 +3,22 @@
  <body>
  % include('./dropdown.tpl')
 <p class = "text-center">Hello! Today is {{ mydate }}</p>
- <form action = "/authors/{{author.id}}/update" method = "POST">
+ <form action = "/publishers/{{publisher.id}}/update" method = "POST">
  <div class="col-sm-4 col-sm-offset-4 centered">
 	 <div class = "form-group">
-	   <label for =  "Book Id">Book Id</label>
+	   <label for =  "Book ID">Book Id</label>
 	   <input type = "text"  class = "form-control" placeholder = "Book Id">
 	 </div>
 	
 	 <div class = "form-group">
-	   <label for = "Book author">Firstname</label>
-	   <input type = "text"  class = "form-control" name = "firstname" placeholder = "First name">
+	   <label for = "publishername">Firstname</label>
+	   <input type = "text"  class = "form-control" name = "publishername" placeholder = "Publisher Name">
 	   
 	 </div>
 
 	  <div class = "form-group">
-	   <label for = "Lastname">Lastname</label>
-	   <input type = "text"  class = "form-control" name = "lastname" placeholder = "Last name">
+	   <label for = "publishercountry">Lastname</label>
+	   <input type = "text"  class = "form-control" name = "publishercountry" placeholder = "Publisher Country">
 	   
 	 </div>
 

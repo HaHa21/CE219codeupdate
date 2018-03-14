@@ -30,7 +30,7 @@
 	   <label for = "Publisher">Book Publisher</label>
 	   <select name="publisher">
 	     %for p in publisherlist:
-		   <option value="{{p.id}}">{{p.name}}</option>
+		   <option value="{{p.id}}">{{p.publishername}}</option>
 		 %end
 	   </select>
 	   
